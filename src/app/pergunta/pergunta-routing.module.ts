@@ -9,13 +9,13 @@ const routes: Routes = [
       path: 'visualizar', component: VisualizarPerguntaComponent
     },
     {
-      path: 'home', component: ListarPerguntasComponent
+      path: '', component: ListarPerguntasComponent
     },
     {
       path: 'criar', component: CriarPerguntaComponent
     }
   ];
-  
+
   @NgModule({
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]

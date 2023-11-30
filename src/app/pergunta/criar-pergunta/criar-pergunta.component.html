@@ -1,8 +1,17 @@
 <div class="container">
     <h1>Digite a pergunta</h1>
-    <editor [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    <form>
+      <select name="categorias" id="categorias">
+        <option value="Java">Java</option>
+        <option value="Spring">Spring</option>
+        <option value="Angular">Angular</option>
+        <option value="MySQL">MySQL</option>
+        <option value="SQL">SQL</option>
+      </select>
+      <editor [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
     toolbar_mode: 'floating',
     toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | help'
     }">
     </editor>
+    </form>
 </div>

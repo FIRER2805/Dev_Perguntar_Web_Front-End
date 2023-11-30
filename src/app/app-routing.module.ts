@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: 'respostas',
-    loadChildren: () => import('./resposta/resposta.module').then(r => r.RespostaModule)
+    loadChildren:() => import('./resposta/resposta.module').then(r => r.RespostaModule)
   }
 ];
 

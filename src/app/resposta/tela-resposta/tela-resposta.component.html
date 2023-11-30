@@ -1,11 +1,10 @@
-<form>
-    <textarea id="editor-texto">Hello, World!</textarea>
-</form>
-<script>
-    tinymce.init({
-  selector: '#editor-texto',  // change this value according to your HTML
-  plugins: 'a_tinymce_plugin',
-  a_plugin_option: true,
-  a_configuration_option: 400
-});
-</script>
+<div class="container">
+  <h1>Digite a resposta</h1>
+  <editor [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+  toolbar_mode: 'floating',
+  toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | help'
+  }">
+  </editor>
+  <a class="btn btn-danger">voltar para a pergunta</a>
+  <button type="button" class="btn btn-success">Enviar resposta</button>
+</div>
