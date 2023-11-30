@@ -6,7 +6,7 @@ import { CriarPerguntaComponent } from './criar-pergunta/criar-pergunta.componen
 
 const routes: Routes = [
     {
-      path: 'visualizar', component: VisualizarPerguntaComponent
+      path: 'visualizar/:id', component: VisualizarPerguntaComponent
     },
     {
       path: '', component: ListarPerguntasComponent

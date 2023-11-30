@@ -2,12 +2,9 @@
   <div *ngFor="let pergunta of perguntas">
     <div class="card">
         <div class="card-header">
-            <h3>{{pergunta.titulo}}</h3>
-        </div>
-        <div class="card-body">
-            {{pergunta.conteudo}}
-            <hr/>
-            <a class="btn btn-primary" href="perguntas/visualizar">Visualizar</a>
+            <h1>{{pergunta.titulo}}</h1>
+            <hr>
+            <button (click)="visualizarPergunta(pergunta)" class="btn btn-primary" type="button">Visualizar</button>
         </div>
     </div>
   </div>
