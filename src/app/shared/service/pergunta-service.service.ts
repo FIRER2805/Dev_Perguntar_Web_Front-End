@@ -18,4 +18,8 @@ export class PerguntaService {
   buscarPorId(id: number): Observable<Pergunta>{
     return this.http.get<Pergunta>(`${this.urlBase}/${id}`);
   }
+
+  inserirPergunta(pergunta: Pergunta): void{
+    this.http.post<Pergunta>(this.urlBase, pergunta);
+  }
 }
