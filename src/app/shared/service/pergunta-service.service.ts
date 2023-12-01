@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Pergunta } from '../model/entity/Pergunta';
+import { PerguntaDTO } from '../model/dto/PerguntaDto';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class PerguntaService {
     return this.http.get<Pergunta>(`${this.urlBase}/${id}`);
   }
 
-  inserirPergunta(pergunta: Pergunta): void{
-    this.http.post<Pergunta>(this.urlBase, pergunta);
+  inserirPergunta(pergunta: PerguntaDTO): Observable<PerguntaDTO>{
+    return this.http.post<PerguntaDTO>(this.urlBase, pergunta);
   }
 }

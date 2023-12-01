@@ -2,23 +2,20 @@
     <h1>Digite a pergunta</h1>
     <form #perguntaForm="ngForm">
       <label>Título</label>
-      <input type="text" class="from-controll" name="titulo" [ngModel]="pergunta.titulo">
+      <input type="text" class="from-controll" name="titulo" [(ngModel)]="pergunta.titulo">
       <label>Categoria</label>
-      <select name="categoria" [ngModel]="pergunta.categoria?.nome">
-        <option value="Java">Java</option>
-        <option value="Spring">Spring</option>
-        <option value="Angular">Angular</option>
-        <option value="MySQL">MySQL</option>
-        <option value="SQL">SQL</option>
+      <select name="categoria" [(ngModel)]="pergunta.idCategoria">
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
       </select>
       <br>
       <label>Conteúdo</label>
       <editor [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
       toolbar_mode: 'floating',
       toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | help'
-      }" name="conteudo" [ngModel]="pergunta.conteudo">
+      }" name="conteudo" [(ngModel)]="pergunta.conteudo">
       </editor>
     </form>
     <a class="btn btn-danger">voltar para a home</a>
     <button type="button" class="btn btn-success" (click)="perguntar()">Perguntar</button>
+    {{pergunta | json}}
 </div>
