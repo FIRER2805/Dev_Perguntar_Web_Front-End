@@ -4,8 +4,7 @@
             <h3>{{pergunta.titulo}}</h3>
             <p class="btn btn-success">{{pergunta.categoria?.nome}}</p>
         </div>
-        <div class="card-body">
-            {{pergunta.conteudo}}
+        <div class="card-body" [innerHTML]="pergunta.conteudo">
         </div>
     </div>
     <hr/>
