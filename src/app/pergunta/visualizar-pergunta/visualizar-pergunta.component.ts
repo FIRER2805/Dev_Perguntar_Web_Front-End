@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Pergunta } from 'src/app/shared/model/entity/Pergunta';
 import { PerguntaService } from 'src/app/shared/service/pergunta-service.service';
 
@@ -11,7 +11,8 @@ import { PerguntaService } from 'src/app/shared/service/pergunta-service.service
 export class VisualizarPerguntaComponent implements OnInit {
   pergunta: Pergunta;
 
-  constructor(private service: PerguntaService, private route: ActivatedRoute){}
+  constructor(private service: PerguntaService, private route: ActivatedRoute,
+    private router: Router){}
 
   ngOnInit(): void {
     let id: number = this.route.snapshot.params['id'];
@@ -19,8 +20,12 @@ export class VisualizarPerguntaComponent implements OnInit {
         this.pergunta = p;
       }
       ,err=>{
-        console.log(err)
+        console.log(err);
       }
     );
+  }
+
+  responder(){
+    this.router.navigate(['respostas/criar', this.pergunta.id]);
   }
 }

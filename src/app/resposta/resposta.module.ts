@@ -5,6 +5,8 @@ import { RespostaRoutingModule } from './resposta-routing.module';
 import { TelaRespostaComponent } from './tela-resposta/tela-resposta.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { ArvoreRespostasComponent } from './arvore-respostas/arvore-respostas.component';
+import { FormsModule } from '@angular/forms';
+import { TreeModule } from 'primeng/tree';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { ArvoreRespostasComponent } from './arvore-respostas/arvore-respostas.co
   imports: [
     CommonModule,
     RespostaRoutingModule,
-    EditorModule
+    EditorModule,
+    FormsModule,
+    TreeModule
   ],
   exports: [
     ArvoreRespostasComponent

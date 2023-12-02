@@ -9,7 +9,8 @@
       </select>
       <br>
       <label>Conteúdo</label>
-      <editor [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+      <editor apiKey="p9sx7pl2basiohsb408l50famtd8ja9fxamll1ebvzozyrlm"
+      [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
       toolbar_mode: 'floating',
       toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | help'
       }" name="conteudo" [(ngModel)]="pergunta.conteudo">
@@ -17,5 +18,4 @@
     </form>
     <a class="btn btn-danger">voltar para a home</a>
     <button type="button" class="btn btn-success" (click)="perguntar()">Perguntar</button>
-    {{pergunta | json}}
 </div>

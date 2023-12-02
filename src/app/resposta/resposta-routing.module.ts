@@ -4,7 +4,7 @@ import { TelaRespostaComponent } from './tela-resposta/tela-resposta.component';
 
 const routes: Routes = [
   {
-    path: 'criar',
+    path: 'criar/:id',
     component: TelaRespostaComponent
   }
 ];

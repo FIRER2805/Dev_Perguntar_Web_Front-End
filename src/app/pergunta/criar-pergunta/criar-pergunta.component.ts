@@ -28,7 +28,7 @@ export class CriarPerguntaComponent implements OnInit {
   perguntar(){
     this.pergunta.dataPergunta = new Date();
     this.service.inserirPergunta(this.pergunta).subscribe(p => {
-      console.log(p);
+      
     },
     err => {
       console.log(err);

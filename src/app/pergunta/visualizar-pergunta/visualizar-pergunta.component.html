@@ -8,7 +8,7 @@
         </div>
     </div>
     <hr/>
-    <a class="btn btn-primary" href="/respostas/criar">Responder</a>
+    <button type="button" (click)="responder()" class="btn btn-primary">Responder</button>
     <hr/>
-    <app-arvore-respostas></app-arvore-respostas>
+    <app-arvore-respostas [idPergunta]="pergunta.id" ></app-arvore-respostas>
 </div>

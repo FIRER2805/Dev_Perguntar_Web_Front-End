@@ -1,10 +1,12 @@
 <div class="container">
   <h1>Digite a resposta</h1>
-  <editor [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-  toolbar_mode: 'floating',
-  toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | help'
-  }">
-  </editor>
+  <form #respostaForm="ngForm">
+    <editor apiKey="p9sx7pl2basiohsb408l50famtd8ja9fxamll1ebvzozyrlm" [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    toolbar_mode: 'floating',
+    toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | help'
+    }" name="conteudo" [(ngModel)]="resposta.conteudo">
+    </editor>
+  </form>
   <a class="btn btn-danger">voltar para a pergunta</a>
-  <button type="button" class="btn btn-success">Enviar resposta</button>
+  <button type="button" (click)="inserir()" class="btn btn-success">Enviar resposta</button>
 </div>

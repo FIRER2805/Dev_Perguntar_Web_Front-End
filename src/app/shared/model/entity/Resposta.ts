@@ -2,11 +2,11 @@ import { Pergunta } from "./Pergunta";
 import { Usuario } from "./Usuario";
 
 export class Resposta {
-    id: number | null = null;
-    conteudo: string = '';
-    solucao: boolean | null = null;
-    pergunta: Pergunta | null = null;
-    usuario: Usuario | null = null;
-    respostaPai: Resposta | null = null;
-    respostaFilhas: Resposta[] = [];
+    id: number | null;
+    conteudo: string;
+    solucao: boolean | null;
+    pergunta: Pergunta | null;
+    usuario: Usuario | null;
+    respostaPai: Resposta | null;
+    children: Resposta[];
 }

@@ -28,6 +28,6 @@ export class ListarPerguntasComponent implements OnInit {
   }
 
   visualizarPergunta(pergunta: Pergunta){
-    this.router.navigate(['/visualizar', pergunta.id]);
+    this.router.navigate(['perguntas/visualizar', pergunta.id]);
   }
 }
