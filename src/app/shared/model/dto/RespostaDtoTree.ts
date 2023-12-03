@@ -1,8 +1,7 @@
-export class RespostaDTOTree {
-  id: number | null;
-  conteudo: string;
+import { TreeNode } from "primeng/api";
+
+export interface RespostaDTOTree extends TreeNode {
   solucao: boolean | null;
-  idPergunta: number | null;
   idUsuario: number | null;
   idRespostaPai: number | null;
 }

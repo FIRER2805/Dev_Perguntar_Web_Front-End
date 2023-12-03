@@ -4,7 +4,11 @@ import { TelaRespostaComponent } from './tela-resposta/tela-resposta.component';
 
 const routes: Routes = [
   {
-    path: 'criar/:id',
+    path: 'criar/:idPergunta/:idRespostaPai',
+    component: TelaRespostaComponent
+  },
+  {
+    path: 'criar/:idPergunta',
     component: TelaRespostaComponent
   }
 ];

@@ -1,3 +1,8 @@
 <br>
 <p-tree [value]="respostas">
+  <ng-template let-node pTemplate="default">
+    <div [innerHTML]="node.label">
+    </div>
+    <button class="btn btn-primary" (click)="responder(node.key)">Responder</button>
+  </ng-template>
 </p-tree>

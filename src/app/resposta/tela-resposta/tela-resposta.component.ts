@@ -16,7 +16,10 @@ export class TelaRespostaComponent implements OnInit {
     private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.resposta.idPergunta = this.route.snapshot.params["id"];
+    this.resposta.idPergunta = this.route.snapshot.params["idPergunta"];
+    this.resposta.idRespostaPai = this.route.snapshot.params["idRespostaPai"];
+    console.log(this.resposta.idPergunta);
+    console.log(this.resposta.idRespostaPai);
   }
 
   inserir(): void{

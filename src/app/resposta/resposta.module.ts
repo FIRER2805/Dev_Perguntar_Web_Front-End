@@ -7,6 +7,7 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { ArvoreRespostasComponent } from './arvore-respostas/arvore-respostas.component';
 import { FormsModule } from '@angular/forms';
 import { TreeModule } from 'primeng/tree';
+import { TreeTableModule } from 'primeng/treetable';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TreeModule } from 'primeng/tree';
     RespostaRoutingModule,
     EditorModule,
     FormsModule,
-    TreeModule
+    TreeModule,
+    TreeTableModule
   ],
   exports: [
     ArvoreRespostasComponent

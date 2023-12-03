@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TreeNode } from 'primeng/api';
+import { RespostaDTOTree } from 'src/app/shared/model/dto/RespostaDtoTree';
 import { Resposta } from 'src/app/shared/model/entity/Resposta';
 import { RespostaService } from 'src/app/shared/service/resposta-service.service';
 
@@ -12,20 +14,22 @@ export class ArvoreRespostasComponent implements OnInit{
 
   @Input()
   public idPergunta: number | null;
-  respostas: TreeNode<Resposta>[] = [{
-      label: "resposta",
-       children: [{label: "resposta filha"}]
-      }
-    ];
+  respostas: TreeNode<RespostaDTOTree>[];
+  respostaSelecionada: TreeNode<any> | TreeNode<any>[] | null;
 
-  constructor(private service: RespostaService){}
+  constructor(private service: RespostaService, private router: Router){}
 
   ngOnInit(): void {
     this.service.buscarPorIdPergunta(this.idPergunta).subscribe(respostas => {
+      console.log(respostas);
       this.respostas = respostas;
     },
     err => {
       console.log(err);
     });
+  }
+
+  responder(idRespostaPai: number){
+    this.router.navigate(['respostas/criar', this.idPergunta, idRespostaPai]);
   }
 }
