@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RespostaDTO } from 'src/app/shared/model/dto/RespostaDto';
 import { RespostaService } from 'src/app/shared/service/resposta-service.service';
 
@@ -13,7 +13,7 @@ export class TelaRespostaComponent implements OnInit {
   resposta: RespostaDTO = new RespostaDTO();
 
   constructor(private http: HttpClient, private service: RespostaService,
-    private route: ActivatedRoute){}
+    private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(): void {
     this.resposta.idPergunta = this.route.snapshot.params["idPergunta"];
@@ -25,7 +25,7 @@ export class TelaRespostaComponent implements OnInit {
   inserir(): void{
     this.resposta.solucao = false;
     this.service.inserir(this.resposta).subscribe(r => {
-      console.log(r);
+      this.router.navigate(['perguntas/visualizar', this.resposta.idPergunta]);
     },
     err => {
       console.log(err);

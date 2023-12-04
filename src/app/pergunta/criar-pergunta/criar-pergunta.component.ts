@@ -4,6 +4,7 @@ import { PerguntaService } from 'src/app/shared/service/pergunta-service.service
 import { PerguntaDTO } from 'src/app/shared/model/dto/PerguntaDto';
 import { Categoria } from 'src/app/shared/model/entity/Categoria';
 import { CategoriaService } from 'src/app/shared/service/categoria-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-criar-pergunta',
@@ -14,7 +15,7 @@ export class CriarPerguntaComponent implements OnInit {
   pergunta: PerguntaDTO = new PerguntaDTO();
   categorias: Categoria[];
 
-  constructor(private service: PerguntaService, private categoriaService: CategoriaService){}
+  constructor(private service: PerguntaService, private categoriaService: CategoriaService, private router: Router){}
 
   ngOnInit(): void {
     this.categoriaService.buscarTodos().subscribe(c => {
@@ -28,7 +29,7 @@ export class CriarPerguntaComponent implements OnInit {
   perguntar(){
     this.pergunta.dataPergunta = new Date();
     this.service.inserirPergunta(this.pergunta).subscribe(p => {
-      
+      this.router.navigate([""]);
     },
     err => {
       console.log(err);

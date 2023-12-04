@@ -2,9 +2,9 @@
     <h1>Digite a pergunta</h1>
     <form #perguntaForm="ngForm">
       <label>Título</label>
-      <input type="text" class="from-controll" name="titulo" [(ngModel)]="pergunta.titulo">
+      <input type="text" class="from-controll" name="titulo" [(ngModel)]="pergunta.titulo" required>
       <label>Categoria</label>
-      <select name="categoria" [(ngModel)]="pergunta.idCategoria">
+      <select name="categoria" [(ngModel)]="pergunta.idCategoria" required>
         <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
       </select>
       <br>
@@ -13,7 +13,7 @@
       [init]="{ plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
       toolbar_mode: 'floating',
       toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat | help'
-      }" name="conteudo" [(ngModel)]="pergunta.conteudo">
+      }" name="conteudo" [(ngModel)]="pergunta.conteudo" required>
       </editor>
     </form>
     <a class="btn btn-danger">voltar para a home</a>
