@@ -10,13 +10,22 @@
   </div>
   <details>
     <summary>Filtros</summary>
-    <input type="checkbox" class="form-check-input" name="resolvida" [(ngModel)]="seletor.resolvida">
-    <label class="form-check-label">Resolvida</label>
-    <input type="date" name="dataInicial" [(ngModel)]="seletor.dataInicial">
-    <input type="date" name="dataFinal" [(ngModel)]="seletor.dataFinal">
-    <select name="categoria" [(ngModel)]="seletor.idCategoria" required>
-      <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
-    </select>
+    <span>
+      <input type="checkbox" class="form-check-input" name="resolvida" [(ngModel)]="seletor.resolvida">
+      <label class="form-check-label ms-2">Resolvida</label>
+    </span>
+    <span class="ms-4">
+      <label>Postado de: </label>
+      <input class="ms-2" type="date" name="dataInicial" [(ngModel)]="seletor.dataInicial">
+      <label class="ms-2">Até: </label>
+      <input class="ms-2" type="date" name="dataFinal" [(ngModel)]="seletor.dataFinal">
+    </span>
+    <span class="ms-4">
+      <label>categoria</label>
+      <select class="ms-2" name="categoria" [(ngModel)]="seletor.idCategoria" required>
+        <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
+      </select>
+    </span>
   </details>
   {{seletor | json}}
 </form>
