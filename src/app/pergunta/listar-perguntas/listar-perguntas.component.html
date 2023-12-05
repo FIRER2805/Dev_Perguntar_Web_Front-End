@@ -4,11 +4,14 @@
   <div *ngFor="let pergunta of perguntas">
     <div class="card">
         <div class="card-header">
+          <span class="btn btn-info">{{pergunta.categoria?.nome}}</span>
             <h1>{{pergunta.titulo}}</h1>
-            <span class="btn btn-info">{{pergunta.categoria?.nome}}</span>
             <span class="btn btn-success" *ngIf="pergunta.dataResolucao">Resolvida</span>
             <hr>
             <button (click)="visualizarPergunta(pergunta)" class="btn btn-primary" type="button">Visualizar</button>
+            <div>
+              
+            </div>
         </div>
     </div>
     <br/>

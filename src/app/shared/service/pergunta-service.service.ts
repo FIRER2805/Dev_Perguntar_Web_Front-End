@@ -16,7 +16,7 @@ export class PerguntaService {
     return this.http.get<Array<Pergunta>>(this.urlBase);
   }
 
-  buscarPorId(id: number): Observable<Pergunta>{
+  buscarPorId(id: number | null): Observable<Pergunta>{
     return this.http.get<Pergunta>(`${this.urlBase}/${id}`);
   }
 

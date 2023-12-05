@@ -1,8 +1,13 @@
 <h3>Pesquisar</h3>
 <form #pesquisaForm="ngForm">
-  <label>nome:</label>
-  <input type="search" class="form-control" name="nome" [(ngModel)]="seletor.nome">
-  <button class="btn btn-primary">Pesquisar</button>
+  <div class="row">
+    <div class="col-lg-10">
+      <input type="search" class="form-control" name="nome" [(ngModel)]="seletor.nome" placeholder="Nome">
+    </div>
+    <div class="col-lg-2">
+      <button class="btn btn-primary">Pesquisar</button>
+    </div>
+  </div>
   <details>
     <summary>Filtros</summary>
     <input type="checkbox" class="form-check-input" name="resolvida" [(ngModel)]="seletor.resolvida">

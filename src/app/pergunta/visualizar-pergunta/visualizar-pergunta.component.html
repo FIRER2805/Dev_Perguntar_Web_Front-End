@@ -1,14 +1,18 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
+            <p class="btn btn-info">{{pergunta.categoria?.nome}}</p>
             <h3>{{pergunta.titulo}}</h3>
-            <p class="btn btn-success">{{pergunta.categoria?.nome}}</p>
         </div>
         <div class="card-body" [innerHTML]="pergunta.conteudo">
         </div>
+        <div class="card-footer">
+            Data: {{pergunta.dataPergunta | date}}
+            <div *ngIf="pergunta.dataResolucao != null">Resolução: {{pergunta.dataResolucao}}</div>
+        </div>
     </div>
     <hr/>
-    <button type="button" (click)="responder()" class="btn btn-primary">Responder</button>
+    <button *ngIf="pergunta.dataResolucao == null" type="button" (click)="responder()" class="btn btn-primary">Responder</button>
     <hr/>
-    <app-arvore-respostas [idPergunta]="pergunta.id" [dataSolucao]="pergunta.dataResolucao"></app-arvore-respostas>
+    <app-arvore-respostas (atualizaPergunta)="pergunta=$event" [idPergunta]="pergunta.id" [dataSolucao]="pergunta.dataResolucao"></app-arvore-respostas>
 </div>
