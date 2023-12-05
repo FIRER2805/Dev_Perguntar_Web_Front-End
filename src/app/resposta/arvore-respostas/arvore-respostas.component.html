@@ -1,8 +1,13 @@
 <br>
 <p-tree [value]="respostas">
   <ng-template let-node pTemplate="default">
-    <div [innerHTML]="node.label">
+    <div *ngIf="node.solucao" class="btn btn-info">solução</div>
+    <span [innerHTML]="node.label">
+    </span>
+    <div *ngIf="dataSolucao == null">
+      <button class="btn btn-primary" (click)="responder(node.key)">Responder</button>
+      <button class="btn btn-info" (click)="marcarComoSolucao(node.key)">Marcar como solução</button>
     </div>
-    <button class="btn btn-primary" (click)="responder(node.key)">Responder</button>
+    <hr/>
   </ng-template>
 </p-tree>

@@ -8,13 +8,15 @@ import { CriarPerguntaComponent } from './criar-pergunta/criar-pergunta.componen
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { ArvoreRespostasComponent } from '../resposta/arvore-respostas/arvore-respostas.component';
 import { RespostaModule } from '../resposta/resposta.module';
+import { BarraPesquisaComponent } from './barra-pesquisa/barra-pesquisa.component';
 
 
 @NgModule({
   declarations: [
     ListarPerguntasComponent,
     VisualizarPerguntaComponent,
-    CriarPerguntaComponent
+    CriarPerguntaComponent,
+    BarraPesquisaComponent
   ],
   imports: [
     CommonModule,

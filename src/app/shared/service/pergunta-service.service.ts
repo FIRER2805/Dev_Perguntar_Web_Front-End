@@ -23,4 +23,8 @@ export class PerguntaService {
   inserirPergunta(pergunta: PerguntaDTO): Observable<PerguntaDTO>{
     return this.http.post<PerguntaDTO>(this.urlBase, pergunta);
   }
+
+  marcarPerguntaComoResolvida(idPergunta: number){
+
+  }
 }
