@@ -13,10 +13,13 @@ import { PerguntaService } from 'src/app/shared/service/pergunta-service.service
   styleUrl: './barra-pesquisa.component.scss'
 })
 export class BarraPesquisaComponent implements OnInit{
-  seletor:  PerguntaSeletor = new PerguntaSeletor();
+
+  seletor: PerguntaSeletor = new PerguntaSeletor();
   categorias: Categoria[];
   @Output()
   public perguntasComFiltro: EventEmitter<Page<Pergunta>> = new EventEmitter<Page<Pergunta>>();
+  @Output()
+  public compartilhaSeletor: EventEmitter<PerguntaSeletor> = new EventEmitter<PerguntaSeletor>();
 
   constructor(private router: Router, private categoriaService: CategoriaService, private perguntaService: PerguntaService){}
 
@@ -32,6 +35,7 @@ export class BarraPesquisaComponent implements OnInit{
   pesquisar(perguntaSeletor: PerguntaSeletor){
     this.perguntaService.buscarComFiltros(perguntaSeletor).subscribe(p => {
       this.perguntasComFiltro.emit(p);
+      this.compartilhaSeletor.emit(this.seletor);
       console.log(p);
     },
     err => {

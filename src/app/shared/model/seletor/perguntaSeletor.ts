@@ -4,4 +4,5 @@ export class PerguntaSeletor{
   dataFinal: Date | null;
   idCategoria: number | null;
   resolvida: boolean | null;
+  pagina: number | null;
 }

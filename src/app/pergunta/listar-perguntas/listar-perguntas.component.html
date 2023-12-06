@@ -1,5 +1,5 @@
 <div class="container">
-  <app-barra-pesquisa (perguntasComFiltro)="perguntas=$event"></app-barra-pesquisa>
+  <app-barra-pesquisa (perguntasComFiltro)="perguntas=$event;" (compartilhaSeletor)="seletor=$event;"></app-barra-pesquisa>
   <br>
   <div *ngFor="let pergunta of perguntas.content">
     <div class="card">
@@ -15,4 +15,8 @@
     </div>
     <br/>
   </div>
+  <button *ngIf="perguntas.pageable.pageNumber > 0" class="btn btn-primary"
+  (click)="voltarPagina(seletor,perguntas.pageable.pageNumber)">Anterior</button>
+  <button *ngIf="perguntas.pageable.pageNumber < (perguntas.totalPages - 1)" class="btn btn-primary"
+  (click)="proximaPagina(seletor,perguntas.pageable.pageNumber)">Proximo</button>
 </div>
