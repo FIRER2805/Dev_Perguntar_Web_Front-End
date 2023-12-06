@@ -1,5 +1,5 @@
 <div class="container">
-  <app-barra-pesquisa></app-barra-pesquisa>
+  <app-barra-pesquisa (perguntasComFiltro)="perguntas=$event"></app-barra-pesquisa>
   <br>
   <div *ngFor="let pergunta of perguntas">
     <div class="card">

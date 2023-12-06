@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Pergunta } from '../model/entity/Pergunta';
 import { PerguntaDTO } from '../model/dto/PerguntaDto';
+import { PerguntaSeletor } from '../model/seletor/perguntaSeletor';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class PerguntaService {
 
   buscarPorId(id: number | null): Observable<Pergunta>{
     return this.http.get<Pergunta>(`${this.urlBase}/${id}`);
+  }
+
+  buscarComFiltros(perguntaSeletor: PerguntaSeletor): Observable<Pergunta[]>{
+    return this.http.post<Pergunta[]>(`${this.urlBase}/filtro`, perguntaSeletor);
   }
 
   inserirPergunta(pergunta: PerguntaDTO): Observable<PerguntaDTO>{
