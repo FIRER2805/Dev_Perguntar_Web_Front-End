@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { Pergunta } from '../model/entity/Pergunta';
 import { PerguntaDTO } from '../model/dto/PerguntaDto';
 import { PerguntaSeletor } from '../model/seletor/perguntaSeletor';
+import { Page } from '../model/entity/Page';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +14,12 @@ export class PerguntaService {
 
   constructor(private http: HttpClient) {}
 
-  buscaTodos(): Observable<Array<Pergunta>>{
-    return this.http.get<Array<Pergunta>>(this.urlBase);
-  }
-
   buscarPorId(id: number | null): Observable<Pergunta>{
     return this.http.get<Pergunta>(`${this.urlBase}/${id}`);
   }
 
-  buscarComFiltros(perguntaSeletor: PerguntaSeletor): Observable<Pergunta[]>{
-    return this.http.post<Pergunta[]>(`${this.urlBase}/filtro`, perguntaSeletor);
+  buscarComFiltros(perguntaSeletor: PerguntaSeletor): Observable<Page<Pergunta>>{
+    return this.http.post<Page<Pergunta>>(`${this.urlBase}/filtro`, perguntaSeletor);
   }
 
   inserirPergunta(pergunta: PerguntaDTO): Observable<PerguntaDTO>{

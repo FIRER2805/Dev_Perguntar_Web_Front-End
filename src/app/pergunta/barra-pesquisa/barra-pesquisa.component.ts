@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Categoria } from 'src/app/shared/model/entity/Categoria';
+import { Page } from 'src/app/shared/model/entity/Page';
 import { Pergunta } from 'src/app/shared/model/entity/Pergunta';
 import { PerguntaSeletor } from 'src/app/shared/model/seletor/perguntaSeletor';
 import { CategoriaService } from 'src/app/shared/service/categoria-service.service';
@@ -15,7 +16,7 @@ export class BarraPesquisaComponent implements OnInit{
   seletor:  PerguntaSeletor = new PerguntaSeletor();
   categorias: Categoria[];
   @Output()
-  public perguntasComFiltro: EventEmitter<Pergunta[]> = new EventEmitter<Pergunta[]>();
+  public perguntasComFiltro: EventEmitter<Page<Pergunta>> = new EventEmitter<Page<Pergunta>>();
 
   constructor(private router: Router, private categoriaService: CategoriaService, private perguntaService: PerguntaService){}
 
@@ -31,6 +32,7 @@ export class BarraPesquisaComponent implements OnInit{
   pesquisar(perguntaSeletor: PerguntaSeletor){
     this.perguntaService.buscarComFiltros(perguntaSeletor).subscribe(p => {
       this.perguntasComFiltro.emit(p);
+      console.log(p);
     },
     err => {
       console.log(err);

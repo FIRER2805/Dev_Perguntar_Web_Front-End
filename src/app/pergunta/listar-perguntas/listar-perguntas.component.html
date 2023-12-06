@@ -1,7 +1,7 @@
 <div class="container">
   <app-barra-pesquisa (perguntasComFiltro)="perguntas=$event"></app-barra-pesquisa>
   <br>
-  <div *ngFor="let pergunta of perguntas">
+  <div *ngFor="let pergunta of perguntas.content">
     <div class="card">
         <div class="card-header">
           <h1>{{pergunta.titulo}}
