@@ -3,6 +3,7 @@ import { VisualizarPerguntaComponent } from './visualizar-pergunta/visualizar-pe
 import { NgModule } from '@angular/core';
 import { ListarPerguntasComponent } from './listar-perguntas/listar-perguntas.component';
 import { CriarPerguntaComponent } from './criar-pergunta/criar-pergunta.component';
+import { RelatorioComponent } from './relatorio/relatorio.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,9 @@ const routes: Routes = [
     },
     {
       path: 'criar', component: CriarPerguntaComponent
+    },
+    {
+      path: 'relatorio', component: RelatorioComponent
     }
   ];
 
