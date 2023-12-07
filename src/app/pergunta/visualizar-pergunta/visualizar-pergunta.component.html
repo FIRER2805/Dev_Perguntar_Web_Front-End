@@ -1,14 +1,16 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <p class="btn btn-info">{{pergunta.categoria?.nome}}</p>
+            <p class="btn btn-sm btn-info">{{pergunta.categoria?.nome}}</p>
+            <p class="btn btn-sm btn-success ms-4"*ngIf="pergunta.dataResolucao != null">Resolvida</p>
             <h3>{{pergunta.titulo}}</h3>
+            <p>Por: {{pergunta.usuario?.nome}}</p>
         </div>
         <div class="card-body" [innerHTML]="pergunta.conteudo">
         </div>
         <div class="card-footer">
-            Data: {{pergunta.dataPergunta | date}}
-            <div *ngIf="pergunta.dataResolucao != null">Resolução: {{pergunta.dataResolucao}}</div>
+            Data: {{pergunta.dataPergunta | date:'dd-MM-yyyy'}}
+            <span class="ms-4" *ngIf="pergunta.dataResolucao != null">Resolução: {{pergunta.dataResolucao | date:'dd-MM-yyyy'}}</span>
         </div>
     </div>
     <hr/>

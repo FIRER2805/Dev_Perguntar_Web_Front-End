@@ -16,7 +16,8 @@
     <br/>
   </div>
   <button *ngIf="perguntas.pageable.pageNumber > 0" class="btn btn-primary"
-  (click)="voltarPagina(seletor,perguntas.pageable.pageNumber)">Anterior</button>
-  <button *ngIf="perguntas.pageable.pageNumber < (perguntas.totalPages - 1)" class="btn btn-primary"
-  (click)="proximaPagina(seletor,perguntas.pageable.pageNumber)">Proximo</button>
+    (click)="voltarPagina(seletor,perguntas.pageable.pageNumber)">Anterior</button>
+      <button *ngIf="perguntas.pageable.pageNumber < (perguntas.totalPages - 1)"
+      class="btn btn-primary float-end"
+      (click)="proximaPagina(seletor,perguntas.pageable.pageNumber)">Proximo</button>
 </div>

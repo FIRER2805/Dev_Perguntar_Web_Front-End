@@ -1,31 +1,44 @@
 <h3>Pesquisar</h3>
 <form #pesquisaForm="ngForm">
   <div class="row">
-    <div class="col-lg-10">
+    <div class="col-lg-9">
       <input type="search" class="form-control" name="nome" [(ngModel)]="seletor.nome" placeholder="Nome">
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-1">
       <button class="btn btn-primary" (click)="pesquisar(seletor)">Pesquisar</button>
     </div>
+    <div class="col-lg-2">
+      <button class="btn btn-primary" (click)="limparFiltros()">Limpar filtros</button>
+    </div>
   </div>
+  <br>
   <details>
     <summary>Filtros</summary>
-    <span>
+    <div>
       <input type="checkbox" class="form-check-input" name="resolvida" [(ngModel)]="seletor.resolvida">
       <label class="form-check-label ms-2">Resolvida</label>
-    </span>
-    <span class="ms-4">
-      <label>Postado de: </label>
-      <input class="ms-2" type="date" name="dataInicial" [(ngModel)]="seletor.dataInicial">
-      <label class="ms-2">Até: </label>
-      <input class="ms-2" type="date" name="dataFinal" [(ngModel)]="seletor.dataFinal">
-    </span>
-    <span class="ms-4">
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label class="mb-0">Postado de:</label>
+        <div class="input-group">
+          <input class="ms-2 form-control" type="date" name="dataInicial" [(ngModel)]="seletor.dataInicial">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="mb-0">Até:</label>
+        <div class="input-group">
+          <input class="ms-2 form-control" type="date" name="dataFinal" [(ngModel)]="seletor.dataFinal">
+        </div>
+      </div>
+    </div>
+
+    <span class="ms-2">
       <label>categoria</label>
-      <select class="ms-2" name="categoria" [(ngModel)]="seletor.idCategoria" required>
+      <select class="ms-2 form-control form-control-sm" name="categoria" [(ngModel)]="seletor.idCategoria" required>
         <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
       </select>
     </span>
   </details>
-  {{seletor | json}}
 </form>

@@ -1,11 +1,15 @@
 <div class="container">
     <h1>Digite a pergunta</h1>
     <form #perguntaForm="ngForm">
-      <label>Título</label>
-      <input type="text" class="from-controll" name="titulo" [(ngModel)]="pergunta.titulo" required>
+      <label>Título:</label>
+      <input type="text" class="form-control" name="titulo" [(ngModel)]="pergunta.titulo" required>
       <label>Categoria</label>
-      <select name="categoria" [(ngModel)]="pergunta.idCategoria" required>
+      <select name="categoria" class="form-control" [(ngModel)]="pergunta.idCategoria" required>
         <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nome}}</option>
+      </select>
+      <label>Usuário</label>
+      <select name="categoria" class="form-control" [(ngModel)]="pergunta.idUsuario" required>
+        <option *ngFor="let usuario of usuarios" [value]="usuario.id">{{usuario.nome}}</option>
       </select>
       <br>
       <label>Conteúdo</label>
@@ -16,6 +20,7 @@
       }" name="conteudo" [(ngModel)]="pergunta.conteudo" required>
       </editor>
     </form>
-    <a class="btn btn-danger">voltar para a home</a>
-    <button type="button" class="btn btn-success" (click)="perguntar()">Perguntar</button>
+    <br>
+    <a class="btn btn-info" href="/">voltar para a home</a>
+    <button type="button" class="btn btn-primary float-end" (click)="perguntar()">Perguntar</button>
 </div>

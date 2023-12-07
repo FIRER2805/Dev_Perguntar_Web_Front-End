@@ -43,4 +43,8 @@ export class BarraPesquisaComponent implements OnInit{
     });
   }
 
+  limparFiltros(){
+    this.seletor = new PerguntaSeletor();
+  }
+
 }
